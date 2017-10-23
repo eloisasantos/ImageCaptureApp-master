@@ -14,7 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+
+import com.mukesh.image_processing.ImageProcessor;
 
 import java.io.File;
 import java.io.IOException;
@@ -138,6 +141,26 @@ public class MainActivity extends AppCompatActivity implements ImageInputHelper.
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void onCheckboxClicked(Uri uri, File imageFile) {
+
+        ImageProcessor imageProcessor = new ImageProcessor();
+
+
+        switch(Uri.getImageProcessor()) {
+
+            case 1:
+                imageProcessor.doInvert(bitmap);
+                break;
+            case 2:
+                imageProcessor.doHighlightImage(bitmap);
+                break;
+            case 3:
+                imageProcessor.doGreyScale(bitmap);
+                break;
+
         }
     }
 }
